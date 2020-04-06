@@ -1,0 +1,3319 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0818.2120                               -->
+<workbook original-version='18.1' source-build='2019.2.3 (20192.19.0818.2120)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='GreenTerps.Sensor+ (BUDT758_DB_0501_08)' inline='true' name='federated.0jj1zpr1ngag5715hqaam1qn9khi' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.0ur4js91w0uiic1dz2fa90vw9xqc'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation connection='sqlserver.0ur4js91w0uiic1dz2fa90vw9xqc' name='GreenTerps.Sensor' table='[dbo].[GreenTerps.Sensor]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stnId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stnId]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>stnId</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorStatus</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[sensorStatus]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>sensorStatus</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:Calculation_223209718905942016:qk]&quot;' value='Parking' />
+          <alias key='&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:Calculation_555631666216189952:qk]&quot;' value='Charging' />
+        </aliases>
+      </column>
+      <column caption='Calculation2' datatype='real' name='[Calculation_223209718905942016]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimePrkng],[endTimePrkng])/60)' />
+      </column>
+      <column caption='Calculation3' datatype='integer' name='[Calculation_223209718919573507]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='MAX(DATEDIFF(&apos;minute&apos;,[startTimeChrg],[endTimePrkng]))' />
+      </column>
+      <column caption='Calculation1' datatype='real' name='[Calculation_555631666216189952]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimeChrg],[endTimeChrg])/60)' />
+      </column>
+      <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Charging Rate Per Hour' datatype='real' name='[chargingRatePerHour]' role='measure' type='quantitative' />
+      <column aggregation='Hour' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Sensor Id' datatype='string' name='[sensorId]' role='dimension' type='nominal' />
+      <column caption='Sensor Status' datatype='boolean' name='[sensorStatus]' role='dimension' type='nominal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Stn Id' datatype='string' name='[stnId]' role='dimension' type='nominal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column aggregation='CountD' caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_223209718905942016]' derivation='Sum' name='[sum:Calculation_223209718905942016:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_555631666216189952]' derivation='Sum' name='[sum:Calculation_555631666216189952:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Calculation_555631666216189952]' derivation='Sum' name='[sum:Calculation_555631666216189952:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <group caption='Action (Date1)' hidden='true' name='[Action (Date1)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Date]' />
+        </groupfilter>
+      </group>
+      <extract count='-1' enabled='false' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Seema Agarwal/Documents/My Tableau Repository/Datasources/GreenTerps.Sensor+ (BUDT758_DB_0501_08).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='12/04/2019 06:32:30 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='GreenTerps.Sensor+ (BUDT758_DB_0501_08)' increment-value='%null%' refresh-type='create' rows-inserted='20' timestamp-start='2019-12-04 18:32:30.874' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>pId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[pId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>pId</remote-alias>
+              <ordinal>0</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dptId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[dptId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dptId</remote-alias>
+              <ordinal>1</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>uId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[uId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>uId</remote-alias>
+              <ordinal>2</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>type</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>type</remote-alias>
+              <ordinal>3</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.46933' measure-ordering='alphabetic' measure-percentage='0.53067' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[sum:Calculation_555631666216189952:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>231.60000000000002</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>231.59999999999997</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:Calculation_555631666216189952:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:chargingRatePerHour:qk]&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:locLong:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:parkingRatePerHour:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:parkingCapacity:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:Calculation_223209718905942016:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;[federated.0jj1zpr1ngag5715hqaam1qn9khi].[sum:locLat:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='GreenTerps.GeneratesReport (BUDT758_DB_0501_08)' inline='true' name='federated.1ul8w8f02c4uii114xjye0u1e78g' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.0j51nhx15hsklx18wrflh07hl4ag'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation connection='sqlserver.0j51nhx15hsklx18wrflh07hl4ag' name='GreenTerps.GeneratesReport' table='[dbo].[GreenTerps.GeneratesReport]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimeChrg</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimeChrg</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimePrkng</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimePrkng</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='Hour' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column caption='Sensor Id' datatype='string' name='[sensorId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.625' measure-ordering='alphabetic' measure-percentage='0.375' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='GreenTerps.User+ (BUDT758_DB_0501_08)' inline='true' name='federated.11gkr4y04yfx18158hviq1ttvlpq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.151pmlf01fscm815qu04v1lz1whp'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[GreenTerps.PaymentGateway].[pId]' />
+              <expression op='[GreenTerps.GeneratesReport].[pId]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[GreenTerps.User].[uId]' />
+                <expression op='[GreenTerps.PaymentGateway].[uId]' />
+              </expression>
+            </clause>
+            <relation connection='sqlserver.151pmlf01fscm815qu04v1lz1whp' name='GreenTerps.User' table='[dbo].[GreenTerps.User]' type='table' />
+            <relation connection='sqlserver.151pmlf01fscm815qu04v1lz1whp' name='GreenTerps.PaymentGateway' table='[dbo].[GreenTerps.PaymentGateway]' type='table' />
+          </relation>
+          <relation connection='sqlserver.151pmlf01fscm815qu04v1lz1whp' name='GreenTerps.GeneratesReport' table='[dbo].[GreenTerps.GeneratesReport]' type='table' />
+        </relation>
+        <cols>
+          <map key='[Date]' value='[GreenTerps.GeneratesReport].[Date]' />
+          <map key='[contactInfo]' value='[GreenTerps.User].[contactInfo]' />
+          <map key='[dateOfBirth]' value='[GreenTerps.User].[dateOfBirth]' />
+          <map key='[dptId]' value='[GreenTerps.PaymentGateway].[dptId]' />
+          <map key='[endTimeChrg]' value='[GreenTerps.GeneratesReport].[endTimeChrg]' />
+          <map key='[endTimePrkng]' value='[GreenTerps.GeneratesReport].[endTimePrkng]' />
+          <map key='[firstName]' value='[GreenTerps.User].[firstName]' />
+          <map key='[hasPermit]' value='[GreenTerps.User].[hasPermit]' />
+          <map key='[lastName]' value='[GreenTerps.User].[lastName]' />
+          <map key='[pId (GreenTerps.GeneratesReport)]' value='[GreenTerps.GeneratesReport].[pId]' />
+          <map key='[pId]' value='[GreenTerps.PaymentGateway].[pId]' />
+          <map key='[sensorId]' value='[GreenTerps.GeneratesReport].[sensorId]' />
+          <map key='[startTimeChrg]' value='[GreenTerps.GeneratesReport].[startTimeChrg]' />
+          <map key='[startTimePrkng]' value='[GreenTerps.GeneratesReport].[startTimePrkng]' />
+          <map key='[type]' value='[GreenTerps.PaymentGateway].[type]' />
+          <map key='[uId (GreenTerps.PaymentGateway)]' value='[GreenTerps.PaymentGateway].[uId]' />
+          <map key='[uId]' value='[GreenTerps.User].[uId]' />
+          <map key='[userType]' value='[GreenTerps.User].[userType]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>firstName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[firstName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>firstName</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lastName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lastName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>lastName</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contactInfo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[contactInfo]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>contactInfo</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dateOfBirth</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[dateOfBirth]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>dateOfBirth</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[userType]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>userType</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hasPermit</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[hasPermit]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>hasPermit</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dptId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dptId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>dptId</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId (GreenTerps.PaymentGateway)]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId (GreenTerps.GeneratesReport)]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimeChrg</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimeChrg</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimePrkng</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimePrkng</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Contact Info' datatype='string' name='[contactInfo]' role='dimension' type='nominal' />
+      <column caption='Date Of Birth' datatype='date' name='[dateOfBirth]' role='dimension' type='ordinal' />
+      <column caption='Dpt Id' datatype='string' name='[dptId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='End Time Chrg' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='End Time Prkng' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='First Name' datatype='string' name='[firstName]' role='dimension' type='nominal' />
+      <column caption='Has Permit' datatype='boolean' name='[hasPermit]' role='dimension' type='nominal' />
+      <column caption='Last Name' datatype='string' name='[lastName]' role='dimension' type='nominal' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column caption='Sensor Id' datatype='string' name='[sensorId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Start Time Chrg' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='Start Time Prkng' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <column caption='User Type' datatype='string' name='[userType]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.869565' measure-ordering='alphabetic' measure-percentage='0.130435' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='GreenTerps.PaymentGateway+ (BUDT758_DB_0501_08)' inline='true' name='federated.0otbj760zlasjc1gpc10a0umkpij' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.0pw1aq7063g7ir18w0m2k1hvtayd'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[GreenTerps.PaymentGateway].[uId]' />
+              <expression op='[GreenTerps.User].[uId]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[GreenTerps.PaymentGateway].[pId]' />
+                <expression op='[GreenTerps.GeneratesReport].[pId]' />
+              </expression>
+            </clause>
+            <relation connection='sqlserver.0pw1aq7063g7ir18w0m2k1hvtayd' name='GreenTerps.PaymentGateway' table='[dbo].[GreenTerps.PaymentGateway]' type='table' />
+            <relation connection='sqlserver.0pw1aq7063g7ir18w0m2k1hvtayd' name='GreenTerps.GeneratesReport' table='[dbo].[GreenTerps.GeneratesReport]' type='table' />
+          </relation>
+          <relation connection='sqlserver.0pw1aq7063g7ir18w0m2k1hvtayd' name='GreenTerps.User' table='[dbo].[GreenTerps.User]' type='table' />
+        </relation>
+        <cols>
+          <map key='[Date]' value='[GreenTerps.GeneratesReport].[Date]' />
+          <map key='[contactInfo]' value='[GreenTerps.User].[contactInfo]' />
+          <map key='[dateOfBirth]' value='[GreenTerps.User].[dateOfBirth]' />
+          <map key='[dptId]' value='[GreenTerps.PaymentGateway].[dptId]' />
+          <map key='[endTimeChrg]' value='[GreenTerps.GeneratesReport].[endTimeChrg]' />
+          <map key='[endTimePrkng]' value='[GreenTerps.GeneratesReport].[endTimePrkng]' />
+          <map key='[firstName]' value='[GreenTerps.User].[firstName]' />
+          <map key='[hasPermit]' value='[GreenTerps.User].[hasPermit]' />
+          <map key='[lastName]' value='[GreenTerps.User].[lastName]' />
+          <map key='[pId (GreenTerps.GeneratesReport)]' value='[GreenTerps.GeneratesReport].[pId]' />
+          <map key='[pId]' value='[GreenTerps.PaymentGateway].[pId]' />
+          <map key='[sensorId]' value='[GreenTerps.GeneratesReport].[sensorId]' />
+          <map key='[startTimeChrg]' value='[GreenTerps.GeneratesReport].[startTimeChrg]' />
+          <map key='[startTimePrkng]' value='[GreenTerps.GeneratesReport].[startTimePrkng]' />
+          <map key='[type]' value='[GreenTerps.PaymentGateway].[type]' />
+          <map key='[uId (GreenTerps.User)]' value='[GreenTerps.User].[uId]' />
+          <map key='[uId]' value='[GreenTerps.PaymentGateway].[uId]' />
+          <map key='[userType]' value='[GreenTerps.User].[userType]' />
+        </cols>
+        <refresh increment-key='' incremental-updates='false' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dptId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dptId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>dptId</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId (GreenTerps.GeneratesReport)]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimeChrg</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimeChrg</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimePrkng</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimePrkng</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId (GreenTerps.User)]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>firstName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[firstName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>firstName</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lastName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lastName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>lastName</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contactInfo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[contactInfo]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>contactInfo</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dateOfBirth</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[dateOfBirth]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>dateOfBirth</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[userType]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>userType</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hasPermit</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[hasPermit]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>hasPermit</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Contact Info' datatype='string' name='[contactInfo]' role='dimension' type='nominal' />
+      <column caption='Date Of Birth' datatype='date' name='[dateOfBirth]' role='dimension' type='ordinal' />
+      <column caption='Dpt Id' datatype='string' name='[dptId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='First Name' datatype='string' name='[firstName]' role='dimension' type='nominal' />
+      <column caption='Has Permit' datatype='boolean' name='[hasPermit]' role='dimension' type='nominal' />
+      <column caption='Last Name' datatype='string' name='[lastName]' role='dimension' type='nominal' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <column caption='User Type' datatype='string' name='[userType]' role='dimension' type='nominal' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Seema Agarwal/Documents/My Tableau Repository/Datasources/GreenTerps.PaymentGateway+ (BUDT758_DB_0501_08).hyper' default-settings='yes' schema='Extract' sslmode='' update-time='12/05/2019 07:38:38 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Date]' value='[Extract].[Date]' />
+            <map key='[contactInfo]' value='[Extract].[contactInfo]' />
+            <map key='[dateOfBirth]' value='[Extract].[dateOfBirth]' />
+            <map key='[dptId]' value='[Extract].[dptId]' />
+            <map key='[endTimeChrg]' value='[Extract].[endTimeChrg]' />
+            <map key='[endTimePrkng]' value='[Extract].[endTimePrkng]' />
+            <map key='[firstName]' value='[Extract].[firstName]' />
+            <map key='[hasPermit]' value='[Extract].[hasPermit]' />
+            <map key='[lastName]' value='[Extract].[lastName]' />
+            <map key='[pId (GreenTerps.GeneratesReport)]' value='[Extract].[pId]' />
+            <map key='[pId]' value='[Extract].[pId1]' />
+            <map key='[sensorId]' value='[Extract].[sensorId]' />
+            <map key='[startTimeChrg]' value='[Extract].[startTimeChrg]' />
+            <map key='[startTimePrkng]' value='[Extract].[startTimePrkng]' />
+            <map key='[type]' value='[Extract].[type]' />
+            <map key='[uId (GreenTerps.User)]' value='[Extract].[uId]' />
+            <map key='[uId]' value='[Extract].[uId1]' />
+            <map key='[userType]' value='[Extract].[userType]' />
+          </cols>
+          <refresh>
+            <refresh-event add-from-file-path='GreenTerps.PaymentGateway+ (BUDT758_DB_0501_08)' increment-value='%null%' refresh-type='create' rows-inserted='30' timestamp-start='2019-12-05 07:38:38.362' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>pId1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[pId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>pId1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dptId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[dptId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dptId</remote-alias>
+              <ordinal>1</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>uId1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[uId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>uId1</remote-alias>
+              <ordinal>2</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>type</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>type</remote-alias>
+              <ordinal>3</ordinal>
+              <family>GreenTerps.PaymentGateway</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sensorId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[sensorId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>sensorId</remote-alias>
+              <ordinal>4</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>13</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>pId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[pId (GreenTerps.GeneratesReport)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>pId</remote-alias>
+              <ordinal>5</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>startTimeChrg</remote-name>
+              <remote-type>134</remote-type>
+              <local-name>[startTimeChrg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>startTimeChrg</remote-alias>
+              <ordinal>6</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>datetime</local-type>
+              <aggregation>Hour</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>endTimeChrg</remote-name>
+              <remote-type>134</remote-type>
+              <local-name>[endTimeChrg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>endTimeChrg</remote-alias>
+              <ordinal>7</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>datetime</local-type>
+              <aggregation>Hour</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>startTimePrkng</remote-name>
+              <remote-type>134</remote-type>
+              <local-name>[startTimePrkng]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>startTimePrkng</remote-alias>
+              <ordinal>8</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>datetime</local-type>
+              <aggregation>Hour</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>endTimePrkng</remote-name>
+              <remote-type>134</remote-type>
+              <local-name>[endTimePrkng]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>endTimePrkng</remote-alias>
+              <ordinal>9</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>datetime</local-type>
+              <aggregation>Hour</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Date</remote-alias>
+              <ordinal>10</ordinal>
+              <family>GreenTerps.GeneratesReport</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>uId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[uId (GreenTerps.User)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>uId</remote-alias>
+              <ordinal>11</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>firstName</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[firstName]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>firstName</remote-alias>
+              <ordinal>12</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lastName</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[lastName]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lastName</remote-alias>
+              <ordinal>13</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>contactInfo</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[contactInfo]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>contactInfo</remote-alias>
+              <ordinal>14</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dateOfBirth</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[dateOfBirth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dateOfBirth</remote-alias>
+              <ordinal>15</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>userType</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[userType]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>userType</remote-alias>
+              <ordinal>16</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hasPermit</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[hasPermit]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>hasPermit</remote-alias>
+              <ordinal>17</ordinal>
+              <family>GreenTerps.User</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.955128' measure-ordering='alphabetic' measure-percentage='0.0448718' show-structure='true' user-set-layout='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='BUDT758_DB_0501_08' inline='true' name='federated.0474xjt0ydskqx10b048o1f837rj' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.0ak5jy4103fvqj1dcw2i81yeevom'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[GreenTerps.Sensor].[sensorId]' />
+              <expression op='[GreenTerps.GeneratesReport].[sensorId]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[GreenTerps.Sensor].[stnId]' />
+                <expression op='[GreenTerps.Station].[stnId]' />
+              </expression>
+            </clause>
+            <relation connection='sqlserver.0ak5jy4103fvqj1dcw2i81yeevom' name='GreenTerps.Sensor' table='[dbo].[GreenTerps.Sensor]' type='table' />
+            <relation connection='sqlserver.0ak5jy4103fvqj1dcw2i81yeevom' name='GreenTerps.Station' table='[dbo].[GreenTerps.Station]' type='table' />
+          </relation>
+          <relation connection='sqlserver.0ak5jy4103fvqj1dcw2i81yeevom' name='GreenTerps.GeneratesReport' table='[dbo].[GreenTerps.GeneratesReport]' type='table' />
+        </relation>
+        <cols>
+          <map key='[Date]' value='[GreenTerps.GeneratesReport].[Date]' />
+          <map key='[chargingRatePerHour]' value='[GreenTerps.Station].[chargingRatePerHour]' />
+          <map key='[dptId]' value='[GreenTerps.Station].[dptId]' />
+          <map key='[endTimeChrg]' value='[GreenTerps.GeneratesReport].[endTimeChrg]' />
+          <map key='[endTimePrkng]' value='[GreenTerps.GeneratesReport].[endTimePrkng]' />
+          <map key='[locLat]' value='[GreenTerps.Station].[locLat]' />
+          <map key='[locLong]' value='[GreenTerps.Station].[locLong]' />
+          <map key='[pId]' value='[GreenTerps.GeneratesReport].[pId]' />
+          <map key='[parkingCapacity]' value='[GreenTerps.Station].[parkingCapacity]' />
+          <map key='[parkingRatePerHour]' value='[GreenTerps.Station].[parkingRatePerHour]' />
+          <map key='[sensorId (GreenTerps.GeneratesReport)]' value='[GreenTerps.GeneratesReport].[sensorId]' />
+          <map key='[sensorId]' value='[GreenTerps.Sensor].[sensorId]' />
+          <map key='[sensorStatus]' value='[GreenTerps.Sensor].[sensorStatus]' />
+          <map key='[serviceType]' value='[GreenTerps.Station].[serviceType]' />
+          <map key='[startTimeChrg]' value='[GreenTerps.GeneratesReport].[startTimeChrg]' />
+          <map key='[startTimePrkng]' value='[GreenTerps.GeneratesReport].[startTimePrkng]' />
+          <map key='[stnId (GreenTerps.Station)]' value='[GreenTerps.Station].[stnId]' />
+          <map key='[stnId]' value='[GreenTerps.Sensor].[stnId]' />
+          <map key='[stnName]' value='[GreenTerps.Station].[stnName]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stnId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stnId]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>stnId</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorStatus</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[sensorStatus]</local-name>
+            <parent-name>[GreenTerps.Sensor]</parent-name>
+            <remote-alias>sensorStatus</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stnId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stnId (GreenTerps.Station)]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>stnId</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dptId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dptId]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>dptId</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>chargingRatePerHour</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[chargingRatePerHour]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>chargingRatePerHour</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>serviceType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[serviceType]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>serviceType</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>parkingRatePerHour</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[parkingRatePerHour]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>parkingRatePerHour</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>parkingCapacity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[parkingCapacity]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>parkingCapacity</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stnName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stnName]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>stnName</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>locLat</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[locLat]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>locLat</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>locLong</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[locLong]</local-name>
+            <parent-name>[GreenTerps.Station]</parent-name>
+            <remote-alias>locLong</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId (GreenTerps.GeneratesReport)]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimeChrg</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimeChrg</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimePrkng</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimePrkng</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_223209718905942016:qk]&quot;' value='Parking' />
+          <alias key='&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_555631666216189952:qk]&quot;' value='Charging' />
+        </aliases>
+      </column>
+      <column caption='Calculation2' datatype='real' name='[Calculation_223209718905942016]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimePrkng],[endTimePrkng])/60)' />
+      </column>
+      <column caption='Calculation1' datatype='real' name='[Calculation_555631666216189952]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimeChrg],[endTimeChrg])/60)' />
+      </column>
+      <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Charging Rate Per Hour' datatype='real' name='[chargingRatePerHour]' role='measure' type='quantitative' />
+      <column caption='Dpt Id' datatype='string' name='[dptId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='End Time Chrg' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='End Time Prkng' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Loc Lat' datatype='real' name='[locLat]' role='measure' type='quantitative' />
+      <column caption='Loc Long' datatype='real' name='[locLong]' role='measure' type='quantitative' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column caption='Parking Capacity' datatype='integer' name='[parkingCapacity]' role='measure' type='quantitative' />
+      <column caption='Parking Rate Per Hour' datatype='real' name='[parkingRatePerHour]' role='measure' type='quantitative' />
+      <column caption='Sensor Id' datatype='string' name='[sensorId]' role='dimension' type='nominal' />
+      <column caption='Sensor Status' datatype='boolean' name='[sensorStatus]' role='dimension' type='nominal' />
+      <column caption='Service Type' datatype='string' name='[serviceType]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Start Time Chrg' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='Start Time Prkng' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Stn Id' datatype='string' name='[stnId]' role='dimension' type='nominal' />
+      <column caption='Stn Name' datatype='string' name='[stnName]' role='dimension' type='nominal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column aggregation='CountD' caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_223209718905942016]' derivation='Sum' name='[sum:Calculation_223209718905942016:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_555631666216189952]' derivation='Sum' name='[sum:Calculation_555631666216189952:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[chargingRatePerHour]' derivation='Sum' name='[sum:chargingRatePerHour:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[locLat]' derivation='Sum' name='[sum:locLat:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[locLong]' derivation='Sum' name='[sum:locLong:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[parkingCapacity]' derivation='Sum' name='[sum:parkingCapacity:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[parkingRatePerHour]' derivation='Sum' name='[sum:parkingRatePerHour:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (DAY(Date1))' hidden='true' name='[Action (DAY(Date1))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[tdy:Date:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Date1)' hidden='true' name='[Action (Date1)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Date1]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.629101' measure-ordering='alphabetic' measure-percentage='0.370899' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_555631666216189952:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:chargingRatePerHour:qk]&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:locLong:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:parkingRatePerHour:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:parkingCapacity:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_223209718905942016:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:locLat:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='GreenTerps.PaymentGateway (BUDT758_DB_0501_08)' inline='true' name='federated.0r8s7dz0q6dsyr16q2ej00eklu2l' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.1i8jlgp0cpfady1b12h6x0rhg8hg'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation connection='sqlserver.1i8jlgp0cpfady1b12h6x0rhg8hg' name='GreenTerps.PaymentGateway' table='[dbo].[GreenTerps.PaymentGateway]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dptId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dptId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>dptId</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Dpt Id' datatype='string' name='[dptId]' role='dimension' type='nominal' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.519258' measure-ordering='alphabetic' measure-percentage='0.480742' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='Sheet 4_Data_Source' inline='true' name='federated.0jy2rgx162fmw61ef1zow0mkj288' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mssqllab.rhsmith.umd.edu,9758' name='sqlserver.1c2nopd1ik1jqo10tasnv1r4m3r9'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='BUDT758_DB_0501_08' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='mssqllab.rhsmith.umd.edu,9758' username='BUDT758_Student_001' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[GreenTerps.PaymentGateway].[pId]' />
+              <expression op='[GreenTerps.GeneratesReport].[pId]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[GreenTerps.User].[uId]' />
+                <expression op='[GreenTerps.PaymentGateway].[uId]' />
+              </expression>
+            </clause>
+            <relation connection='sqlserver.1c2nopd1ik1jqo10tasnv1r4m3r9' name='GreenTerps.User' table='[dbo].[GreenTerps.User]' type='table' />
+            <relation connection='sqlserver.1c2nopd1ik1jqo10tasnv1r4m3r9' name='GreenTerps.PaymentGateway' table='[dbo].[GreenTerps.PaymentGateway]' type='table' />
+          </relation>
+          <relation connection='sqlserver.1c2nopd1ik1jqo10tasnv1r4m3r9' name='GreenTerps.GeneratesReport' table='[dbo].[GreenTerps.GeneratesReport]' type='table' />
+        </relation>
+        <cols>
+          <map key='[Date]' value='[GreenTerps.GeneratesReport].[Date]' />
+          <map key='[contactInfo]' value='[GreenTerps.User].[contactInfo]' />
+          <map key='[dateOfBirth]' value='[GreenTerps.User].[dateOfBirth]' />
+          <map key='[dptId]' value='[GreenTerps.PaymentGateway].[dptId]' />
+          <map key='[endTimeChrg]' value='[GreenTerps.GeneratesReport].[endTimeChrg]' />
+          <map key='[endTimePrkng]' value='[GreenTerps.GeneratesReport].[endTimePrkng]' />
+          <map key='[firstName]' value='[GreenTerps.User].[firstName]' />
+          <map key='[hasPermit]' value='[GreenTerps.User].[hasPermit]' />
+          <map key='[lastName]' value='[GreenTerps.User].[lastName]' />
+          <map key='[pId (GreenTerps.GeneratesReport)]' value='[GreenTerps.GeneratesReport].[pId]' />
+          <map key='[pId]' value='[GreenTerps.PaymentGateway].[pId]' />
+          <map key='[sensorId]' value='[GreenTerps.GeneratesReport].[sensorId]' />
+          <map key='[startTimeChrg]' value='[GreenTerps.GeneratesReport].[startTimeChrg]' />
+          <map key='[startTimePrkng]' value='[GreenTerps.GeneratesReport].[startTimePrkng]' />
+          <map key='[type]' value='[GreenTerps.PaymentGateway].[type]' />
+          <map key='[uId (GreenTerps.PaymentGateway)]' value='[GreenTerps.PaymentGateway].[uId]' />
+          <map key='[uId]' value='[GreenTerps.User].[uId]' />
+          <map key='[userType]' value='[GreenTerps.User].[userType]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>firstName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[firstName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>firstName</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lastName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lastName]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>lastName</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contactInfo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[contactInfo]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>contactInfo</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dateOfBirth</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[dateOfBirth]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>dateOfBirth</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[userType]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>userType</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hasPermit</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[hasPermit]</local-name>
+            <parent-name>[GreenTerps.User]</parent-name>
+            <remote-alias>hasPermit</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dptId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dptId]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>dptId</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[uId (GreenTerps.PaymentGateway)]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>uId</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[GreenTerps.PaymentGateway]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sensorId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sensorId]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>sensorId</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pId (GreenTerps.GeneratesReport)]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>pId</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimeChrg</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimeChrg</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimeChrg]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimeChrg</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[startTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>startTimePrkng</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endTimePrkng</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[endTimePrkng]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>endTimePrkng</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIME&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIME&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[GreenTerps.GeneratesReport]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Calculation1' datatype='integer' name='[Calculation_971933156974956544]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM(IFNULL(DATEDIFF(&apos;minute&apos;, [startTimeChrg], [endTimeChrg]),0)) + SUM(IFNULL(DATEDIFF(&apos;minute&apos;, [startTimePrkng], [endTimePrkng]),0))' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Contact Info' datatype='string' name='[contactInfo]' role='dimension' type='nominal' />
+      <column caption='Date Of Birth' datatype='date' name='[dateOfBirth]' role='dimension' type='ordinal' />
+      <column caption='Dpt Id' datatype='string' name='[dptId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='End Time Chrg' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='End Time Prkng' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='First Name' datatype='string' name='[firstName]' role='dimension' type='nominal' />
+      <column caption='Has Permit' datatype='boolean' name='[hasPermit]' role='dimension' type='nominal' />
+      <column caption='Last Name' datatype='string' name='[lastName]' role='dimension' type='nominal' />
+      <column caption='P Id' datatype='string' name='[pId]' role='dimension' type='nominal' />
+      <column caption='Sensor Id' datatype='string' name='[sensorId]' role='dimension' type='nominal' />
+      <column aggregation='Hour' caption='Start Time Chrg' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+      <column aggregation='Hour' caption='Start Time Prkng' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+      <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+      <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+      <column caption='User Type' datatype='string' name='[userType]' role='dimension' type='nominal' />
+      <column-instance column='[uId]' derivation='None' name='[none:uId:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.737518' measure-ordering='alphabetic' measure-percentage='0.262482' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:uId:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;U009&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;U001&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;U005&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;U013&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;U010&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;U006&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;U019&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;U002&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;U017&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;U007&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;U014&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;U015&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;U018&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;U020&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;U011&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;U008&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;U003&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;U016&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;U012&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;U004&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Revenue' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet lock-quick-filters='true' name='Most Frequent Users'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet 4_Data_Source' name='federated.0jy2rgx162fmw61ef1zow0mkj288' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jy2rgx162fmw61ef1zow0mkj288'>
+            <column caption='Calculation1' datatype='integer' name='[Calculation_971933156974956544]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM(IFNULL(DATEDIFF(&apos;minute&apos;, [startTimeChrg], [endTimeChrg]),0)) + SUM(IFNULL(DATEDIFF(&apos;minute&apos;, [startTimePrkng], [endTimePrkng]),0))' />
+            </column>
+            <column aggregation='Hour' caption='End Time Chrg' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+            <column aggregation='Hour' caption='End Time Prkng' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+            <column-instance column='[uId]' derivation='None' name='[none:uId:nk]' pivot='key' type='nominal' />
+            <column aggregation='Hour' caption='Start Time Chrg' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+            <column aggregation='Hour' caption='Start Time Prkng' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+            <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_971933156974956544]' derivation='User' name='[usr:Calculation_971933156974956544:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='[Calculation_971933156974956544]' function='order' user:ui-marker='order'>
+                <groupfilter from='&quot;U001&quot;' function='range' level='[none:uId:nk]' to='&quot;U020&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column='[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]' direction='DESC' using='[federated.0jy2rgx162fmw61ef1zow0mkj288].[usr:Calculation_971933156974956544:qk]' />
+          <slices>
+            <column>[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0jy2rgx162fmw61ef1zow0mkj288].[usr:Calculation_971933156974956544:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0jy2rgx162fmw61ef1zow0mkj288].[usr:Calculation_971933156974956544:qk]</rows>
+        <cols>[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]</cols>
+      </table>
+      <simple-id uuid='{69D3D249-4F1D-4FFE-B3C0-C5F0C1EB6933}' />
+    </worksheet>
+    <worksheet lock-quick-filters='true' name='Preffered Payment Method'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='GreenTerps.PaymentGateway (BUDT758_DB_0501_08)' name='federated.0r8s7dz0q6dsyr16q2ej00eklu2l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0r8s7dz0q6dsyr16q2ej00eklu2l'>
+            <column-instance column='[uId]' derivation='Count' name='[cnt:uId:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[type]' derivation='None' name='[none:type:qk]' pivot='key' type='quantitative' />
+            <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+            <column caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[none:type:qk]' field-type='quantitative' max='7' min='-3' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]' field-type='quantitative' max='47' min='0' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]</rows>
+        <cols>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[none:type:qk]</cols>
+      </table>
+      <simple-id uuid='{24F3F1C8-9E92-4F1B-88BD-3A9BCAF5B9FD}' />
+    </worksheet>
+    <worksheet lock-quick-filters='true' name='Revenue'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='BUDT758_DB_0501_08' name='federated.0474xjt0ydskqx10b048o1f837rj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0474xjt0ydskqx10b048o1f837rj'>
+            <column caption='Calculation2' datatype='real' name='[Calculation_223209718905942016]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimePrkng],[endTimePrkng])/60)' />
+            </column>
+            <column caption='Calculation1' datatype='real' name='[Calculation_555631666216189952]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[chargingRatePerHour]*(DATEDIFF(&apos;minute&apos;,[startTimeChrg],[endTimeChrg])/60)' />
+            </column>
+            <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Charging Rate Per Hour' datatype='real' name='[chargingRatePerHour]' role='measure' type='quantitative' />
+            <column aggregation='Hour' caption='End Time Chrg' datatype='datetime' name='[endTimeChrg]' role='dimension' type='ordinal' />
+            <column aggregation='Hour' caption='End Time Prkng' datatype='datetime' name='[endTimePrkng]' role='dimension' type='ordinal' />
+            <column aggregation='Hour' caption='Start Time Chrg' datatype='datetime' name='[startTimeChrg]' role='dimension' type='ordinal' />
+            <column aggregation='Hour' caption='Start Time Prkng' datatype='datetime' name='[startTimePrkng]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_223209718905942016]' derivation='Sum' name='[sum:Calculation_223209718905942016:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_555631666216189952]' derivation='Sum' name='[sum:Calculation_555631666216189952:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_555631666216189952:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_223209718905942016:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]' included-values='in-range'>
+            <min>#2019-11-15 00:00:00#</min>
+            <max>#2019-12-07 23:59:59#</max>
+          </filter>
+          <slices>
+            <column>[federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names]</column>
+            <column>[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0474xjt0ydskqx10b048o1f837rj].[Multiple Values]' scope='rows' value='Revenue Generated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0474xjt0ydskqx10b048o1f837rj].[Multiple Values]</rows>
+        <cols>([federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names] * [federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk])</cols>
+      </table>
+      <simple-id uuid='{DE3E6BEA-1A22-4AB4-A583-BC962CC8E708}' />
+    </worksheet>
+    <worksheet lock-quick-filters='true' name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='BUDT758_DB_0501_08' name='federated.0474xjt0ydskqx10b048o1f837rj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0474xjt0ydskqx10b048o1f837rj'>
+            <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column-instance column='[uId]' derivation='Count' name='[cnt:uId:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[uId]' derivation='CountD' name='[ctd:uId:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[uId]' derivation='CountD' name='[ctd:uId:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[type]' derivation='None' name='[none:type:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:ok]' pivot='key' type='ordinal' />
+            <column caption='Type' datatype='integer' name='[type]' role='measure' type='quantitative' />
+            <column aggregation='CountD' caption='U Id' datatype='string' name='[uId]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0474xjt0ydskqx10b048o1f837rj].[Action (DAY(Date1))]'>
+            <groupfilter function='level-members' level='[tdy:Date:ok]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0474xjt0ydskqx10b048o1f837rj].[Action (DAY(Date1))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0474xjt0ydskqx10b048o1f837rj].[cnt:uId:ok]' />
+              <lod column='[federated.0474xjt0ydskqx10b048o1f837rj].[ctd:uId:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0474xjt0ydskqx10b048o1f837rj].[ctd:uId:qk]</rows>
+        <cols>[federated.0474xjt0ydskqx10b048o1f837rj].[none:type:qk]</cols>
+      </table>
+      <simple-id uuid='{CFC938B6-72A7-45B1-9DF1-3561C3C6B1EB}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard lock-quick-filters='true' name='Dashboard 1'>
+      <style>
+        <style-rule element='dash-subtitle'>
+          <format attr='background-color' value='#ffffff' />
+        </style-rule>
+      </style>
+      <size maxheight='861' maxwidth='1657' minheight='861' minwidth='1657' preset-index='1' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='BUDT758_DB_0501_08' name='federated.0474xjt0ydskqx10b048o1f837rj' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0474xjt0ydskqx10b048o1f837rj'>
+        <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+        <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='7' param='horz' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='98142' id='5' type='layout-basic' w='64031' x='483' y='929'>
+              <zone h='98142' id='25' param='vert' type='layout-flow' w='64031' x='483' y='929'>
+                <zone fixed-size='644' h='70732' id='26' is-fixed='true' name='Revenue' w='64031' x='483' y='929'>
+                  <layout-cache minheight='234' minwidth='261' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='228' h='27410' id='38' is-fixed='true' name='Revenue' param='[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]' type='filter' values='database' w='64031' x='483' y='71661'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='580' h='98142' id='6' is-fixed='true' param='vert' type='layout-flow' w='35003' x='64514' y='929'>
+              <zone h='35772' id='11' name='Sheet 2' w='35003' x='64514' y='929'>
+                <layout-cache type-h='fixed' type-w='fixed' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='2787' id='12' name='Sheet 2' param='[federated.0474xjt0ydskqx10b048o1f837rj].[cnt:uId:ok]' type='color' w='35003' x='64514' y='36701'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='2787' id='27' name='Revenue' pane-specification-id='1' param='[federated.0474xjt0ydskqx10b048o1f837rj].[none:Date:qk]' type='color' w='35003' x='64514' y='39488'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='32520' id='47' name='Preffered Payment Method' w='32710' x='65359' y='13589' />
+        <zone h='10221' id='48' name='Preffered Payment Method' pane-specification-id='0' param='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]' type='color' w='8449' x='53591' y='25552' />
+        <zone h='42857' id='49' name='Most Frequent Users' w='30235' x='66083' y='53542' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1450' minheight='1450' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='58' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98142' id='59' param='vert' type='layout-flow' w='99034' x='483' y='929'>
+                <zone fixed-size='228' h='27410' id='38' name='Revenue' param='[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]' type='filter' values='database' w='64031' x='483' y='71661'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='70732' id='26' is-fixed='true' name='Revenue' w='64031' x='483' y='929'>
+                  <layout-cache minheight='234' minwidth='261' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2787' id='27' name='Revenue' pane-specification-id='1' param='[federated.0474xjt0ydskqx10b048o1f837rj].[none:Date:qk]' type='color' w='35003' x='64514' y='39488'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='35772' id='11' is-fixed='true' name='Sheet 2' w='35003' x='64514' y='929'>
+                  <layout-cache type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2787' id='12' name='Sheet 2' param='[federated.0474xjt0ydskqx10b048o1f837rj].[cnt:uId:ok]' type='color' w='35003' x='64514' y='36701'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='32520' id='47' is-fixed='true' name='Preffered Payment Method' w='32710' x='65359' y='13589'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10221' id='48' name='Preffered Payment Method' pane-specification-id='0' param='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]' type='color' w='8449' x='53591' y='25552'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='42857' id='49' is-fixed='true' name='Most Frequent Users' w='30235' x='66083' y='53542'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{C23C8509-EAA8-42F5-907E-EA002BAA374F}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='64'>
+    <window class='worksheet' name='Revenue'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card pane-specification-id='3' param='[federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[:Measure Names]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[none:Date:qk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_555631666216189952:ok]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[sum:Calculation_555631666216189952:qk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[tdy:Date:qk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[tyr:Date:qk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{3F88A769-6AC9-4BC1-8B9B-0EBF7464CB7B}' />
+    </window>
+    <window class='worksheet' name='Preffered Payment Method'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:ok]</field>
+            <field>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[cnt:uId:qk]</field>
+            <field>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[none:type:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{EA1C30CE-C083-42B7-B73D-9470BF604D65}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Most Frequent Users'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0jy2rgx162fmw61ef1zow0mkj288].[none:uId:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{CCD72500-F3F5-407A-97B8-77E36787C19E}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Most Frequent Users'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Preffered Payment Method'>
+          <zoom type='entire-view' />
+          <selection-collection>
+            <node-selection select-tuples='false'>
+              <oriented-node-reference orientation='horizontal'>
+                <node-reference>
+                  <axis>[federated.0r8s7dz0q6dsyr16q2ej00eklu2l].[none:type:qk]</axis>
+                </node-reference>
+                <page-reference />
+              </oriented-node-reference>
+            </node-selection>
+          </selection-collection>
+        </viewpoint>
+        <viewpoint name='Revenue'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 2'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.0474xjt0ydskqx10b048o1f837rj].[cnt:uId:ok]</field>
+            </color-one-way>
+          </highlight>
+          <floating-toolbar-visibility value='1' />
+        </viewpoint>
+      </viewpoints>
+      <active id='38' />
+      <device-preview visible='true' />
+      <simple-id uuid='{4E0D2E60-32A6-470B-AEB8-165F197F2B44}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[cnt:uId:ok]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[none:dptId:nk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[none:pId:nk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[none:type:qk]</field>
+            <field>[federated.0474xjt0ydskqx10b048o1f837rj].[none:uId:nk]</field>
+          </color-one-way>
+        </highlight>
+        <floating-toolbar-visibility value='1' />
+      </viewpoint>
+      <simple-id uuid='{919CCD8E-A001-4ECD-B766-64E1AF1644F7}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      tvb/AWf5hkNisKArAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Most Frequent Users' width='192'>
+      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
+      c1Sv2gAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Preffered Payment Method' width='192'>
+      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
+      rkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Revenue' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
