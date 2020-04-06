@@ -1,0 +1,2 @@
+# Green_Terps
+Green Terps: An efficient, secure and robust database to handle daily transactions between a user and an Electric vehicle charging station at the University of Maryland, College Park. Coordinating amongst a group of four, I designed and implemented a DBMS to keep transactions robust, respond to stakeholder requests and maintain meaningful relationships. We used tableau dashboard to visualize our results. 
